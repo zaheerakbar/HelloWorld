@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("hello-world")
+        app = docker.build("amd64/hello-world")
     }
 
     stage('Test image') {
