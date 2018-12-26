@@ -6,7 +6,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("amd64/hello-world")
+        app = docker.build("binuraj/glasslog")
     }
 
     stage('Test image') {
