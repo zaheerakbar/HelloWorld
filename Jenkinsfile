@@ -8,7 +8,7 @@ node {
     stage('Build image') {
        // app = docker.build("binuraj/glasslog")https://registry.hub.docker.com
        // This step should not normally be used in your script. Consult the inline help for details.
-        withDockerRegistry(url: 'https://registry.hub.docker.com') {
+        withDockerRegistry(url: 'https://registry.hub.docker.com', docker-hub-credentials) {
             image = docker.image('binuraj/glasslog:1.0')
             image.pull()
         }
