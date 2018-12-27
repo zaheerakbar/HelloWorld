@@ -6,7 +6,10 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("binuraj/glasslog")
+       // app = docker.build("binuraj/glasslog")
+        withDockerServer([uri: 'https://cloud.docker.com/repository/docker/binuraj/glasslog']) {
+            // some block
+        }
     }
 
     stage('Test image') {
