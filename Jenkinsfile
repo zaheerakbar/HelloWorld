@@ -7,15 +7,14 @@ node {
 
     stage('Build image') {
        // app = docker.build("binuraj/glasslog")
-        withDockerServer([uri: 'https://cloud.docker.com/repository/docker']) {
-            app = docker.build("binuraj/glasslog")
-            // some block
+        withDockerServer([uri: 'https://cloud.docker.com/repository/docker/binuraj/glasslog']) {
+            
         }
     }
 
     stage('Test image') {
         app.inside {
-            bat 'echo "Tests passed"'
+            echo "Tests passed"
         }
     }
 
