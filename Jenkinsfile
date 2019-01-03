@@ -1,16 +1,14 @@
 pipeline {
-  environment {
-    registry = "binuraj/glasslog"
-    registryCredential = 'docker-hub-credentials'
-  }
-  agent any
   stages {
-    stage('Building image') {
-      steps{
-        script {
-          docker.build(registry)
+    stage('Maven Install') {
+      agent {
+        docker {
+          image 'maven:3.5.0'
         }
       }
-    }
+      steps {
+        bat 'mvn clean install'
+      }
+    } 
   }
 }
